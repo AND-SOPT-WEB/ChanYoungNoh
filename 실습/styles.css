@@ -1,0 +1,23 @@
+h1 {
+  text-align: center;
+}
+
+.web:hover{
+    width: 100%;
+    background-color: azure;
+}
+
+.name:hover{
+    width: 80%;
+    background-color:rgb(159, 146, 247);
+}
+
+section{
+    display: flex;
+    justify-content: center;
+}
+
+li {
+  margin-bottom: 20px;
+  color: blueviolet;
+}
