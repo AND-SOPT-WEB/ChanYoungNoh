@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./assets/water.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  align-items: center;
+  padding: 10px 20px;
+  top: 0;
+  z-index: 1;
+}
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+ul.catagory {
+  display: flex;
+  flex-grow: 1;
+}
+ul .link {
+  display: flex;
+  flex-grow: 1;
+}
+.catagory li a,
+.link li a {
+  text-decoration: none;
+  font-size: 16px;
+}
+.catagory li a:hover {
+  color: #1f1680;
+}
+.link li i {
+  font-size: 20px;
+}
+
+.home-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-top: 40%;
+  margin-right: 3%;
+}
+.home-banner p {
+  padding: 1% 2%;
+  margin-bottom: 1%;
+  background-color: rgb(190, 189, 250);
+  color: rgb(91, 34, 161);
+  font-weight: bold;
+  border-radius: 6px;
+}
+.home-banner button {
+  padding: 0.5% 1%;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.home-banner a {
+  text-decoration: none;
+}
+.home-banner button:hover {
+  background-color: rgba(0, 0, 0, 0.9); /* 심화: 버튼 hover 됐을 때 효과 */
+}
+main {
+  background-color: #1f1680;
+  padding: 4%;
+  margin-top: 2%;
+}
+#infinite-banner,
+#scroll-view {
+  margin-top: 3%;
+  margin-left: 3%;
+}
+#infinite-banner {
+  width: 100%;
+  overflow: hidden;
+}
+.infinite-container {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+.cat-img {
+  display: flex;
+  flex-wrap: nowrap;
+  animation: scroll-left 15s linear infinite;
+}
+.cat-img li {
+  flex: 0 0 auto;
+  width: 15%;
+  height: 100%;
+  margin-right: 10px;
+  position: relative;
+}
+.cat-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.cat-img li:hover img {
+  transform: scale(1.1); /* 심화: hover시 이미지 확대 */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+#scroll-view {
+  position: relative;
+  margin-top: 20%;
+}
+.scroll-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.today-cat {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: 90%;
+  margin: 0 5%;
+}
+.today-cat li {
+  flex: 0 0 auto;
+  width: 15%;
+  margin-right: 10px;
+  scroll-snap-align: center;
+}
+.today-cat img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.scroll-left,
+.scroll-right {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+/* 심화: 양쪽 화살표 누르면 양쪽 끝으로 이동 */
+.scroll-left {
+  left: 0;
+}
+.scroll-right {
+  right: 0;
+}
+.scroll-left:hover,
+.scroll-right:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.today-cat {
+  scrollbar-width: none;
+}
+.today-cat::-webkit-scrollbar {
+  display: none;
+}
+.scroll-container a {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 8% 1%;
+}
