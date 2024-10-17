@@ -15,6 +15,10 @@ body {
   position: relative;
 }
 
+i {
+  color: #ffffff;
+}
+
 header {
   display: flex;
   position: fixed;
@@ -91,81 +95,91 @@ main {
   padding: 4%;
   margin-top: 2%;
 }
-#infinite-banner,
-#scroll-view {
+
+.infinite-banner,
+.scroll-view {
   margin-top: 3%;
-  margin-left: 3%;
 }
-#infinite-banner {
-  width: 100%;
-  overflow: hidden;
+
+.infinite-banner {
+  scroll-behavior: smooth;
 }
+
 .infinite-container {
   display: flex;
   width: 100%;
   overflow: hidden;
+  position: relative;
 }
+
 .cat-img {
   display: flex;
   flex-wrap: nowrap;
-  animation: scroll-left 15s linear infinite;
+  animation: infiniteScroll 20s linear infinite;
 }
+
 .cat-img li {
-  flex: 0 0 auto;
-  width: 15%;
-  height: 100%;
-  margin-right: 10px;
-  position: relative;
+  flex: 0 0 40px;
+  width: 20%;
+  height: 20%;
 }
 .cat-img img {
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
+.cat-img + .cat-img {
+  margin-left: 20px; 
+}
+
 .cat-img li:hover img {
   transform: scale(1.1); /* 심화: hover시 이미지 확대 */
 }
 
-@keyframes scroll-left {
+@keyframes infiniteScroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 
-#scroll-view {
+.scroll-view {
   position: relative;
   margin-top: 20%;
 }
+
 .scroll-container {
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
 }
+
 .today-cat {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
-  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   width: 90%;
   margin: 0 5%;
 }
+
 .today-cat li {
   flex: 0 0 auto;
   width: 15%;
   margin-right: 10px;
   scroll-snap-align: center;
 }
+
 .today-cat img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .scroll-left,
 .scroll-right {
   position: absolute;
@@ -174,23 +188,28 @@ main {
   cursor: pointer;
   z-index: 1;
 }
-/* 심화: 양쪽 화살표 누르면 양쪽 끝으로 이동 */
+
 .scroll-left {
   left: 0;
 }
+
 .scroll-right {
   right: 0;
 }
+
 .scroll-left:hover,
 .scroll-right:hover {
   background-color: rgba(0, 0, 0, 0.9);
 }
+
 .today-cat {
   scrollbar-width: none;
 }
+
 .today-cat::-webkit-scrollbar {
   display: none;
 }
+
 .scroll-container a {
   background-color: rgba(0, 0, 0, 0.4);
   padding: 8% 1%;
