@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <script
       src="https://kit.fontawesome.com/4a998b80be.js"
       crossorigin="anonymous"
@@ -12,10 +13,84 @@
   </head>
   <body>
     <header class="header-container">
-      <button class="header-item"><i class="fa-solid fa-bars"></i></button>
-      <h1 class="header-item">회원 관리 페이지</h1>
-      <p class="header-item">🌊AND SOPT WEB 노찬영🩵</p>
+      <i class="fa-solid fa-bars header-item"></i>
+      <h1 class="header-title header-item">회원 관리 페이지</h1>
+      <p class="header-profile header-item">🌊AND SOPT WEB 노찬영🩵</p>
     </header>
+
+    <main>
+      <section class="filter">
+        <div class="name">
+          <label for="name">이름</label>
+        </div>
+        <div class="name-input">
+          <input type="text" placeholder="이름을 입력하세요" />
+        </div>
+
+        <div class="en_name">
+          <label for="en_name">영문 이름</label>
+        </div>
+        <div class="en_name-input">
+          <input type="text" placeholder="영문 이름을 입력하세요" />
+        </div>
+
+        <div class="github">
+          <label for="github">GitHub</label>
+        </div>
+        <div class="github-input">
+          <input type="text" placeholder="GitHub ID를 입력하세요" />
+        </div>
+        <div class="gender">
+          <label for="gender">성별</label>
+        </div>
+        <div class="gender-select">
+          <select>
+            <option value="" selected>성별 선택</option>
+            <option value="male">남자</option>
+            <option value="female">여자</option>
+          </select>
+        </div>
+        <div class="role">
+          <label for="role">역할</label>
+        </div>
+        <div class="role-select">
+          <select>
+            <option value="" selected>OB / YB 선택</option>
+            <option value="ob">OB</option>
+            <option value="yb">YB</option>
+          </select>
+        </div>
+
+        <div class="group1">
+          <label for="group1">1주차 금잔디조</label>
+        </div>
+        <div class="group1-input">
+          <input type="text" placeholder="1주차 금잔디조를 입력하세요 (1~9)" />
+        </div>
+        <div class="group2">
+          <label for="group2">2주차 금잔디조</label>
+        </div>
+        <div class="group2-input">
+          <input type="text" placeholder="2주차 금잔디조를 입력하세요 (1~9)" />
+        </div>
+
+        <div class="reset_btn">
+          <button>초기화</button>
+        </div>
+        <div class="search_btn">
+          <button>검색</button>
+        </div>
+      </section>
+
+      <section class="list_btn">
+        <button class="delete_btn">선택삭제</button>
+        <button class="add_btn">추가</button>
+      </section>
+      
+      <section class="table">
+
+      </section>
+    </main>
 
     <script src="Administrator.js"></script>
   </body>

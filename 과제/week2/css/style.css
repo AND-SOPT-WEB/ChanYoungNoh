@@ -1,0 +1,182 @@
+.header-container {
+  display: flex;
+  background-color: rgb(167, 134, 127);
+  width: 100%;
+  padding: 1% 2%;
+  position: fixed;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.header-item {
+  flex-grow: 1;
+  text-align: center;
+}
+.header-title {
+  font-size: 24px;
+}
+.header-profile {
+  text-align: right;
+  color: white;
+  font-weight: bold;
+}
+.fa-bars {
+  text-align: left;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 7rem 20rem;
+}
+
+.filter {
+  display: grid;
+  background-color: rgb(236, 192, 184);
+  width: 100%;
+  padding: 1.2rem;
+  gap: 1rem 0;
+  border-radius: 3px;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "name name-input name-input name-input name-input name-input"
+    "en_name en_name-input en_name-input en_name-input en_name-input en_name-input"
+    "github github-input gender gender-select role role-select"
+    "group1 group1-input group1-input group2 group2-input group2-input"
+    "reset_btn reset_btn reset_btn search_btn search_btn search_btn";
+}
+
+.name {
+  grid-area: name;
+  text-align: center;
+  background-color: rgb(218, 217, 217);
+}
+.name-input {
+  grid-area: name-input;
+  background-color: white;
+}
+.name-input input {
+  width: 90%;
+}
+
+.en_name {
+  grid-area: en_name;
+  text-align: center;
+  background-color: rgb(218, 217, 217);
+}
+.en_name-input {
+  grid-area: en_name-input;
+  background-color: white;
+}
+.en_name-input input {
+  width: 90%;
+}
+
+.github {
+  grid-area: github;
+  text-align: center;
+  background-color: rgb(218, 217, 217);
+}
+.github-input {
+  grid-area: github-input;
+  background-color: white;
+}
+.gender {
+  grid-area: gender;
+  text-align: center;
+  background-color: rgb(218, 217, 217);
+}
+.gender-select {
+  grid-area: gender-select;
+  background-color: white;
+}
+.gender-select select {
+  width: 99%;
+}
+.role {
+  grid-area: role;
+  text-align: center;
+  background-color: rgb(218, 217, 217);
+}
+.role-select {
+  grid-area: role-select;
+  background-color: white;
+}
+.role-select select {
+  width: 99%;
+}
+
+.group1 {
+  grid-area: group1;
+  text-align: center;
+  background-color: rgb(218, 217, 217);
+}
+.group1-input {
+  grid-area: group1-input;
+  background-color: white;
+}
+.group1-input input {
+  width: 90%;
+}
+.group2 {
+  grid-area: group2;
+  text-align: center;
+  background-color: rgb(218, 217, 217);
+}
+.group2-input {
+  grid-area: group2-input;
+  background-color: white;
+}
+.group2-input input {
+  width: 90%;
+}
+
+.reset_btn,
+.search_btn {
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  padding: 2%;
+}
+.reset_btn {
+  grid-area: reset_btn;
+  background-color: rgb(203, 181, 165);
+}
+.reset_btn button {
+  width: 100%;
+  color: white;
+  background-color: rgb(203, 181, 165);
+}
+.search_btn {
+  grid-area: search_btn;
+  background-color: rgb(84, 57, 40);
+}
+.search_btn button {
+  width: 100%;
+  color: white;
+  background-color: rgb(84, 57, 40);
+}
+
+.list_btn {
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+  height: 2.5rem;
+  margin-top: 1rem;
+}
+.delete_btn {
+  background-color: rgb(203, 181, 165);
+  border-radius: 5px;
+  padding: 0 2.5rem;
+  color: white;
+}
+
+.add_btn {
+  background-color: rgb(84, 57, 40);
+  border-radius: 5px;
+  padding: 0 3rem;
+  color: white;
+}
