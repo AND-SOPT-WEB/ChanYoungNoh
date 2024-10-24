@@ -1,18 +1,9 @@
 * {
   box-sizing: border-box;
-  margin: 0;
-  top: 0;
 }
 
 html,
-body {
-  scrollbar-width: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  scroll-behavior: smooth;
-  background-color: #faeadf;
-}
+body,
 div,
 span,
 applet,
@@ -27,91 +18,94 @@ h6,
 p,
 blockquote,
 pre,
-a {
-  text-decoration: none;
-}
-button {
-  border: none;
-}
+a,
 abbr,
-  acronym,
-  address,
-  big,
-  cite,
-  code,
-  del,
-  dfn,
-  em,
-  img,
-  ins,
-  kbd,
-  q,
-  s,
-  samp,
-  small,
-  strike,
-  strong,
-  sub,
-  sup,
-  tt,
-  var,
-  b,
-  u,
-  i,
-  center,
-  dl,
-  dt,
-  dd,
-  ol,
-  ul,
-  li,
-  fieldset,
-  form,
-  label,
-  legend,
-  table,
-  caption,
-  tbody,
-  tfoot,
-  thead,
-  tr,
-  th,
-  td,
-  article,
-  aside,
-  canvas,
-  details,
-  embed,
-  figure,
-  figcaption,
-  footer,
-  header,
-  hgroup,
-  menu,
-  nav,
-  output,
-  ruby,
-  section,
-  summary,
-  time,
-  mark,
-  audio,
-  video, 
-  /* HTML5 display-role reset for older browsers */
-  article,
-  aside,
-  details,
-  figcaption,
-  figure,
-  footer,
-  header,
-  hgroup,
-  menu,
-  nav,
-  section {
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 62.5%;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
-
+body {
+  line-height: 1;
+}
 ol,
 ul {
   list-style: none;
@@ -132,7 +126,24 @@ table {
   border-spacing: 0;
 }
 input,
-select {
-  background: none;
+select,
+button {
   border: none;
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+:root {
+  --headerbrown: rgb(167, 134, 127);
+  --lightbrown: rgb(203, 181, 165);
+  --brown: rgb(236, 192, 184);
+  --red: rgb(167, 134, 127);
+  --white: #fff;
+  --darkbrown: rgb(84, 57, 40);
+  --gray: #dfdfdf;
+  --lightgray: rgb(218, 217, 217);
 }

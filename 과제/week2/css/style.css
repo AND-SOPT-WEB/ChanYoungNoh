@@ -1,9 +1,9 @@
 .header-container {
   display: flex;
-  background-color: rgb(167, 134, 127);
+  background-color: var(--headerbrown);
   width: 100%;
   padding: 1% 2%;
-  position: fixed;
+  position: sticky;
   align-items: center;
   justify-content: space-between;
   z-index: 1;
@@ -29,14 +29,14 @@ main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin: 7rem 20rem;
+  margin: 7rem 18rem;
 }
 
 .filter {
   display: grid;
-  background-color: rgb(236, 192, 184);
+  background-color: var(--brown);
   width: 100%;
-  padding: 1.2rem;
+  padding: 1.6rem;
   gap: 1rem 0;
   border-radius: 3px;
   grid-template-columns: repeat(6, 1fr);
@@ -47,11 +47,25 @@ main {
     "group1 group1-input group1-input group2 group2-input group2-input"
     "reset_btn reset_btn reset_btn search_btn search_btn search_btn";
 }
+.filter label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: var(--gray);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.filter input::placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
 
 .name {
   grid-area: name;
-  text-align: center;
-  background-color: rgb(218, 217, 217);
+  background-color: var(--lightgray);
 }
 .name-input {
   grid-area: name-input;
@@ -63,8 +77,7 @@ main {
 
 .en_name {
   grid-area: en_name;
-  text-align: center;
-  background-color: rgb(218, 217, 217);
+  background-color: var(--lightgray);
 }
 .en_name-input {
   grid-area: en_name-input;
@@ -76,8 +89,7 @@ main {
 
 .github {
   grid-area: github;
-  text-align: center;
-  background-color: rgb(218, 217, 217);
+  background-color: var(--lightgray);
 }
 .github-input {
   grid-area: github-input;
@@ -85,8 +97,7 @@ main {
 }
 .gender {
   grid-area: gender;
-  text-align: center;
-  background-color: rgb(218, 217, 217);
+  background-color: var(--lightgray);
 }
 .gender-select {
   grid-area: gender-select;
@@ -98,7 +109,7 @@ main {
 .role {
   grid-area: role;
   text-align: center;
-  background-color: rgb(218, 217, 217);
+  background-color: var(--lightgray);
 }
 .role-select {
   grid-area: role-select;
@@ -110,8 +121,7 @@ main {
 
 .group1 {
   grid-area: group1;
-  text-align: center;
-  background-color: rgb(218, 217, 217);
+  background-color: var(--lightgray);
 }
 .group1-input {
   grid-area: group1-input;
@@ -122,8 +132,7 @@ main {
 }
 .group2 {
   grid-area: group2;
-  text-align: center;
-  background-color: rgb(218, 217, 217);
+  background-color: var(--lightgray);
 }
 .group2-input {
   grid-area: group2-input;
@@ -138,45 +147,108 @@ main {
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  text-align: center;
-  padding: 2%;
+  padding: 1%;
 }
 .reset_btn {
   grid-area: reset_btn;
-  background-color: rgb(203, 181, 165);
+  background-color: var(--lightbrown);
 }
 .reset_btn button {
   width: 100%;
   color: white;
-  background-color: rgb(203, 181, 165);
+  background-color: var(--lightbrown);
 }
 .search_btn {
   grid-area: search_btn;
-  background-color: rgb(84, 57, 40);
+  background-color: var(--darkbrown);
 }
 .search_btn button {
   width: 100%;
   color: white;
-  background-color: rgb(84, 57, 40);
+  background-color: var(--darkbrown);
 }
 
-.list_btn {
+.table-btn {
   display: flex;
   justify-content: end;
   gap: 1rem;
   height: 2.5rem;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .delete_btn {
-  background-color: rgb(203, 181, 165);
+  background-color: var(--lightbrown);
   border-radius: 5px;
   padding: 0 2.5rem;
   color: white;
 }
-
 .add_btn {
-  background-color: rgb(84, 57, 40);
+  background-color: var(--darkbrown);
   border-radius: 5px;
   padding: 0 3rem;
   color: white;
+}
+
+.members-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+.members-table th:nth-child(1),
+.members-table td:nth-child(1) {
+  width: 5%;
+}
+
+.members-table th:nth-child(2),
+.members-table td:nth-child(2),
+.members-table th:nth-child(3),
+.members-table td:nth-child(3) {
+  width: 15%;
+}
+
+.members-table th:nth-child(4),
+.members-table td:nth-child(4) {
+  width: 20%;
+}
+
+.members-table th:nth-child(5),
+.members-table td:nth-child(5),
+.members-table th:nth-child(6),
+.members-table td:nth-child(6),
+.members-table th:nth-child(7),
+.members-table td:nth-child(7),
+.members-table th:nth-child(8),
+.members-table td:nth-child(8) {
+  width: 10%;
+}
+.members-table th {
+  background-color: var(--red);
+  color: white;
+  padding: 12px;
+  font-size: 1.2rem;
+  border: 1px solid var(--brown);
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.members-table td {
+  background-color: white;
+  padding: 12px;
+  font-size: 1.2rem;
+  border: 1px solid rgb(167, 134, 127);
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.table-btn {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+}
+.members-table-body a {
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1.2rem;
 }

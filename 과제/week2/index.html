@@ -82,16 +82,30 @@
         </div>
       </section>
 
-      <section class="list_btn">
-        <button class="delete_btn">선택삭제</button>
-        <button class="add_btn">추가</button>
-      </section>
-      
       <section class="table">
-
+        <div class="table-btn">
+          <button class="delete_btn">선택삭제</button>
+          <button class="add_btn">추가</button>
+        </div>
+        <table class="members-table">
+          <thead>
+            <tr class="members-table-head">
+              <th><input type="checkbox" id="select-all" /></th>
+              <th>이름</th>
+              <th>영문 이름</th>
+              <th>GitHub</th>
+              <th>성별</th>
+              <th>역할</th>
+              <th>1주차 금잔디</th>
+              <th>2주차 금잔디</th>
+            </tr>
+          </thead>
+          <tbody class="members-table-body"></tbody>
+        </table>
       </section>
     </main>
 
-    <script src="Administrator.js"></script>
+    <script type="module" src="./script.js"></script>
+    <script type="module" src="./utils/data.js"></script>
   </body>
 </html>
