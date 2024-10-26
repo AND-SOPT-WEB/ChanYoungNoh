@@ -1,11 +1,11 @@
 .header-container {
-  display: flex;
+  display: grid;
   background-color: var(--headerbrown);
   width: 100%;
   padding: 1% 2%;
   position: sticky;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  justify-content: space-between;
   z-index: 1;
 }
 
@@ -146,7 +146,6 @@ main {
 .search_btn {
   border-radius: 5px;
   font-size: 1rem;
-  cursor: pointer;
   padding: 1%;
 }
 .reset_btn {
@@ -157,6 +156,7 @@ main {
   width: 100%;
   color: white;
   background-color: var(--lightbrown);
+  cursor: pointer;
 }
 .search_btn {
   grid-area: search_btn;
@@ -166,6 +166,7 @@ main {
   width: 100%;
   color: white;
   background-color: var(--darkbrown);
+  cursor: pointer;
 }
 
 .table-btn {
@@ -180,12 +181,14 @@ main {
   border-radius: 5px;
   padding: 0 2.5rem;
   color: white;
+  cursor: pointer;
 }
 .add_btn {
   background-color: var(--darkbrown);
   border-radius: 5px;
   padding: 0 3rem;
   color: white;
+  cursor: pointer;
 }
 
 .members-table {
