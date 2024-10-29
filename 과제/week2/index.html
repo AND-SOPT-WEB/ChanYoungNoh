@@ -105,7 +105,77 @@
       </section>
     </main>
 
+    <section class="modal">
+      <dialog class="modal__contents">
+        <h2>새 멤버 추가 🩵</h2>
+        <button type="button" class="modal__closeBtn">X</button>
+
+        <form method="dialog">
+          <div class="modal__input">
+            <label for="modal__name">이름</label>
+            <input
+              type="text"
+              class="modal__name"
+              placeholder="이름을 입력하세요"
+            />
+          </div>
+          <div class="modal__input">
+            <label for="modal__enname">영문이름</label>
+            <input
+              type="text"
+              class="modal__enname"
+              placeholder="영문 이름을 입력하세요"
+            />
+          </div>
+          <div class="modal__input">
+            <label for="modal__github">깃허브</label>
+            <input
+              type="text"
+              class="modal__github"
+              placeholder="깃허브 ID를 입력해주세요"
+            />
+          </div>
+          <div class="modal__select">
+            <label for="modal__gender">성별</label>
+            <select name="modal__gender" class="modal__gender">
+              <option value="" selected disabled>성별 선택</option>
+              <option value="male">남성</option>
+              <option value="female">여성</option>
+            </select>
+          </div>
+          <div class="modal__select">
+            <label for="modal__role">역할</label>
+            <select name="modal__role" class="modal__role">
+              <option value="" selected disabled>YB/OB 선택</option>
+              <option value="YB">YB</option>
+              <option value="OB">OB</option>
+            </select>
+          </div>
+          <div class="modal__input">
+            <label for="modal__group1">1주차 금잔디조</label>
+            <input
+              type="text"
+              class="modal__group1"
+              placeholder="1주차 금잔디조를 입력해주세요"
+            />
+          </div>
+          <div class="modal__input">
+            <label for="modal__group2">2주차 금잔디조</label>
+            <input
+              type="text"
+              class="modal__group2"
+              placeholder="2주차 금잔디조를 입력해주세요"
+            />
+          </div>
+          <div class="modal__addBtn">
+            <button class="modal__addBtn">추가</button>
+          </div>
+        </form>
+      </dialog>
+    </section>
+
     <script type="module" src="./script.js"></script>
     <script type="module" src="./utils/data.js"></script>
+    <script type="module" src="./utils/modal.js"></script>
   </body>
 </html>

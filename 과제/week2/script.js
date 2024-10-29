@@ -1,5 +1,6 @@
 import { members } from "./utils/data.js";
 import { renderMembersTable } from "./utils/render.js";
+// import modal from "./utils/modal.js";
 
 let membersData = JSON.parse(localStorage.getItem("membersData")) || [];
 
@@ -11,6 +12,7 @@ if (membersData.length === 0) {
 const membersTableBody = document.querySelector(".members-table-body");
 renderMembersTable(membersData, membersTableBody);
 
-// let initialData = [...membersData];
-
-// let filteredData = [];
+// const addBtn = document.querySelector(".add_btn");
+// addBtn.addEventListener("click", () => {
+//   modal();
+// });

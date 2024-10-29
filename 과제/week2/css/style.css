@@ -255,3 +255,73 @@ main {
   cursor: pointer;
   font-size: 1.2rem;
 }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.modal__contents {
+  width: 28%;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: relative;
+}
+
+.modal__contents h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.modal__input,
+.modal__select {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.modal__input label,
+.modal__select label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.modal__input input,
+.modal__select select {
+  padding: 0.8rem;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.modal__addBtn button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--darkbrown);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal__closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+  background: none;
+  cursor: pointer;
+  color: black;
+}
