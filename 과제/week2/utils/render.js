@@ -1,5 +1,6 @@
 export const renderMembersTable = (membersData, tableBody) => {
   tableBody.replaceChildren();
+  localStorage.setItem("membersData", JSON.stringify(membersData));
 
   membersData.forEach((member) => {
     const tr = document.createElement("tr");
@@ -8,6 +9,7 @@ export const renderMembersTable = (membersData, tableBody) => {
     const checkBoxTd = document.createElement("td");
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
+    checkBox.classList.add("rowCheckbox");
     checkBoxTd.appendChild(checkBox);
     tr.appendChild(checkBoxTd);
 
@@ -20,13 +22,11 @@ export const renderMembersTable = (membersData, tableBody) => {
     tr.appendChild(englishNameTd);
 
     const githubTd = document.createElement("td");
-
-    const githubHref = document.createElement("a");
-    githubHref.textContent = member.github;
-    githubHref.href = `https://github.com/${member.github}`;
-    githubHref.target = "_blank";
-
-    githubTd.appendChild(githubHref);
+    const githubLink = document.createElement("a");
+    githubLink.href = `https://github.com/${member.github}`;
+    githubLink.target = "_blank";
+    githubLink.textContent = member.github;
+    githubTd.appendChild(githubLink);
     tr.appendChild(githubTd);
 
     const genderTd = document.createElement("td");

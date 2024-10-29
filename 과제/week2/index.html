@@ -24,21 +24,29 @@
           <label for="name">이름</label>
         </div>
         <div class="name-input">
-          <input type="text" placeholder="이름을 입력하세요" />
+          <input type="text" id="name-input" placeholder="이름을 입력하세요" />
         </div>
 
         <div class="en_name">
           <label for="en_name">영문 이름</label>
         </div>
         <div class="en_name-input">
-          <input type="text" placeholder="영문 이름을 입력하세요" />
+          <input
+            type="text"
+            id="en_name-input"
+            placeholder="영문 이름을 입력하세요"
+          />
         </div>
 
         <div class="github">
           <label for="github">GitHub</label>
         </div>
         <div class="github-input">
-          <input type="text" placeholder="GitHub ID를 입력하세요" />
+          <input
+            type="text"
+            id="github-input"
+            placeholder="GitHub ID를 입력하세요"
+          />
         </div>
         <div class="gender">
           <label for="gender">성별</label>
@@ -65,13 +73,21 @@
           <label for="group1">1주차 금잔디조</label>
         </div>
         <div class="group1-input">
-          <input type="text" placeholder="1주차 금잔디조를 입력하세요 (1~9)" />
+          <input
+            type="text"
+            id="group1-input"
+            placeholder="1주차 금잔디조를 입력하세요 (1~9)"
+          />
         </div>
         <div class="group2">
           <label for="group2">2주차 금잔디조</label>
         </div>
         <div class="group2-input">
-          <input type="text" placeholder="2주차 금잔디조를 입력하세요 (1~9)" />
+          <input
+            type="text"
+            id="group2-input"
+            placeholder="2주차 금잔디조를 입력하세요 (1~9)"
+          />
         </div>
 
         <div class="reset_btn">
@@ -90,7 +106,7 @@
         <table class="members-table">
           <thead>
             <tr class="members-table-head">
-              <th><input type="checkbox" id="select-all" /></th>
+              <th><input type="checkbox" id="select__item" /></th>
               <th>이름</th>
               <th>영문 이름</th>
               <th>GitHub</th>
@@ -110,11 +126,12 @@
         <h2>새 멤버 추가 🩵</h2>
         <button type="button" class="modal__closeBtn">X</button>
 
-        <form method="dialog">
+        <form method="dialog" id="modal__item">
           <div class="modal__input">
             <label for="modal__name">이름</label>
             <input
               type="text"
+              id="modal__name"
               class="modal__name"
               placeholder="이름을 입력하세요"
             />
@@ -123,6 +140,7 @@
             <label for="modal__enname">영문이름</label>
             <input
               type="text"
+              id="modal__enname"
               class="modal__enname"
               placeholder="영문 이름을 입력하세요"
             />
@@ -131,6 +149,7 @@
             <label for="modal__github">깃허브</label>
             <input
               type="text"
+              id="modal__github"
               class="modal__github"
               placeholder="깃허브 ID를 입력해주세요"
             />
@@ -155,6 +174,7 @@
             <label for="modal__group1">1주차 금잔디조</label>
             <input
               type="text"
+              id="modal__group1"
               class="modal__group1"
               placeholder="1주차 금잔디조를 입력해주세요"
             />
@@ -163,6 +183,7 @@
             <label for="modal__group2">2주차 금잔디조</label>
             <input
               type="text"
+              id="modal__group2"
               class="modal__group2"
               placeholder="2주차 금잔디조를 입력해주세요"
             />
@@ -174,8 +195,7 @@
       </dialog>
     </section>
 
-    <script type="module" src="./script.js"></script>
-    <script type="module" src="./utils/data.js"></script>
-    <script type="module" src="./utils/modal.js"></script>
+    <script type="module" src="./utils/filter.js"></script>
+    <script type="module" src="./utils/table.js"></script>
   </body>
 </html>
