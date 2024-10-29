@@ -32,14 +32,20 @@ modalAddBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   const newMember = {
-    name: document.querySelector(".modal__name").value,
-    englishName: document.querySelector(".modal__enname").value,
-    github: document.querySelector(".modal__github").value,
-    gender: document.querySelector(".modal__gender").value,
-    role: document.querySelector(".modal__role").value,
-    firstWeekGroup: document.querySelector(".modal__group1").value,
-    secondWeekGroup: document.querySelector(".modal__group2").value,
+    name: document.querySelector(".modal__name").value.trim(),
+    englishName: document.querySelector(".modal__enname").value.trim(),
+    github: document.querySelector(".modal__github").value.trim(),
+    gender: document.querySelector(".modal__gender").value.trim(),
+    role: document.querySelector(".modal__role").value.trim(),
+    firstWeekGroup: document.querySelector(".modal__group1").value.trim(),
+    secondWeekGroup: document.querySelector(".modal__group2").value.trim(),
   };
+
+  const emptyField = Object.values(newMember).some((value) => value === "");
+  if (emptyField) {
+    alert("모든 필드를 입력해주세요.");
+    return;
+  }
 
   membersData.push(newMember);
   localStorage.setItem("membersData", JSON.stringify(membersData));
