@@ -11,7 +11,9 @@ export const filter = (membersData) => {
     .querySelector(".github-input input")
     .value.toLowerCase();
   const genderSelect = document.querySelector(".gender-select select").value;
-  const roleSelect = document.querySelector(".role-select select").value;
+  const roleSelect = document
+    .querySelector(".role-select select")
+    .value.toUpperCase();
   const group1Input = document.querySelector(".group1-input input").value;
   const group2Input = document.querySelector(".group2-input input").value;
 
