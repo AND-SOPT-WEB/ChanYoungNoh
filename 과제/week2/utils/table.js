@@ -49,7 +49,8 @@ modalAddBtn.addEventListener("click", (e) => {
 
   membersData.push(newMember);
   localStorage.setItem("membersData", JSON.stringify(membersData));
-  document.querySelector(".modal__contents").close();
+  modal.style.display = "none";
+  modalContent.close();
   renderMembersTable(membersData, membersTableBody);
 });
 
