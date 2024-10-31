@@ -5,11 +5,21 @@ import styled from "@emotion/styled";
 const getSortedData = () => {
   const savedData = JSON.parse(localStorage.getItem("rankingData")) || [];
   // 데이터 평탄화 및 정렬
+  savedData.level = {
+    level1: 1,
+    level2: 2,
+    level3: 3,
+  };
   return savedData.flat().sort((a, b) => {
-    if (a.level === b.level) {
+    // 높은 레벨부터 정렬 (숫자 비교)
+    const levelComparison = parseInt(b.level) - parseInt(a.level);
+
+    // 같은 레벨인 경우 플레이 시간이 짧은 것부터 정렬
+    if (levelComparison !== 0) {
+      return levelComparison;
+    } else {
       return parseFloat(a.playTime) - parseFloat(b.playTime);
     }
-    return b.level.localeCompare(a.level); // 레벨 내림차순 (문자열 비교)
   });
 };
 
