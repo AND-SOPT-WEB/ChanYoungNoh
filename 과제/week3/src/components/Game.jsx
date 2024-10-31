@@ -86,12 +86,20 @@ const Game = ({ level, setLevel, time, setTime, running, setRunning }) => {
   const saveGameData = () => {
     const now = new Date();
     const playTime = time.toFixed(2);
-    const gameData = {
-      date: now.toLocaleString(),
-      level,
-      playTime,
-    };
-    localStorage.setItem("lastGame", JSON.stringify(gameData));
+    const gameData = [
+      {
+        date: now.toLocaleString(),
+        level,
+        playTime,
+      },
+    ];
+    // 기존 게임 기록 데이터 불러오기
+    const savedData = JSON.parse(localStorage.getItem("lastGame")) || [];
+    // 새로운 게임 기록 데이터 추가
+    savedData.push(gameData);
+
+    // 수정된 기록 데이터를 다시 localStorage에 저장
+    localStorage.setItem("lastGame", JSON.stringify(savedData));
   };
 
   return (
