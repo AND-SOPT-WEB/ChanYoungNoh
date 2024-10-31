@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header";
 import Game from "./components/Game";
+import Ranking from "./components/Ranking";
 
 function App() {
   const [menu, setMenu] = useState("game");
@@ -27,6 +28,7 @@ function App() {
           setRunning={setRunning}
         />
       )}
+      {menu === "ranking" && <Ranking />}
     </div>
   );
 }

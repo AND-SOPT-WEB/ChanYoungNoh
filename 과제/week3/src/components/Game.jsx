@@ -94,12 +94,12 @@ const Game = ({ level, setLevel, time, setTime, running, setRunning }) => {
       },
     ];
     // 기존 게임 기록 데이터 불러오기
-    const savedData = JSON.parse(localStorage.getItem("lastGame")) || [];
+    const savedData = JSON.parse(localStorage.getItem("rankingData")) || [];
     // 새로운 게임 기록 데이터 추가
     savedData.push(gameData);
 
     // 수정된 기록 데이터를 다시 localStorage에 저장
-    localStorage.setItem("lastGame", JSON.stringify(savedData));
+    localStorage.setItem("rankingData", JSON.stringify(savedData));
   };
 
   return (
@@ -127,9 +127,10 @@ const Game = ({ level, setLevel, time, setTime, running, setRunning }) => {
 
 const GameContainer = styled.div`
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: center;
-  padding-top: 5rem;
+  padding: 3rem;
 `;
 
 const GridContainer = styled.div`
