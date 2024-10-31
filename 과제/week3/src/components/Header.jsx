@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import "../styles/Header.css";
 
-const Header = ({ menu, setMenu }) => {
+const Header = ({ menu, setMenu, level, setLevel, time }) => {
   return (
     <HeaderContainer>
       <h2>1 to 50</h2>
@@ -16,12 +16,17 @@ const Header = ({ menu, setMenu }) => {
 
       {menu === "game" && (
         <RightContainer>
-          <select className="level" id="level">
+          <select
+            className="level"
+            id="level"
+            onChange={(e) => setLevel(e.target.value)}
+            value={level}
+          >
             <option value="level1">Level 1</option>
             <option value="level2">Level 2</option>
             <option value="level3">Level 3</option>
           </select>
-          <Timer>00:00</Timer>
+          <Timer>{time.toFixed(2)}</Timer>{" "}
         </RightContainer>
       )}
     </HeaderContainer>
@@ -60,9 +65,10 @@ const RightContainer = styled.div`
 `;
 
 const Timer = styled.div`
+  display: flex;
+  padding: 0.5rem;
   color: white;
-  border: none;
-  border-radius: 10px;
+  width: 30px; 
 `;
 
 export default Header;
