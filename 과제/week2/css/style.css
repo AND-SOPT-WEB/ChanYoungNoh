@@ -14,7 +14,7 @@
   text-align: center;
 }
 .header-title {
-  font-size: 24px;
+  font-size: 3rem;
 }
 .header-profile {
   text-align: right;
@@ -39,13 +39,7 @@ main {
   padding: 1.6rem;
   gap: 1rem 0;
   border-radius: 3px;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-areas:
-    "name name-input name-input name-input name-input name-input"
-    "en_name en_name-input en_name-input en_name-input en_name-input en_name-input"
-    "github github-input gender gender-select role role-select"
-    "group1 group1-input group1-input group2 group2-input group2-input"
-    "reset_btn reset_btn reset_btn search_btn search_btn search_btn";
+  grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr;
 }
 .filter label {
   display: flex;
@@ -64,11 +58,11 @@ main {
 }
 
 .name {
-  grid-area: name;
+  grid-column: 1 / 2;
   background-color: var(--lightgray);
 }
 .name-input {
-  grid-area: name-input;
+  grid-column: 2 / 7;
   background-color: white;
 }
 .name-input input {
@@ -76,11 +70,11 @@ main {
 }
 
 .en_name {
-  grid-area: en_name;
+  grid-column: 1 / 2;
   background-color: var(--lightgray);
 }
 .en_name-input {
-  grid-area: en_name-input;
+  grid-column: 2 / 7;
   background-color: white;
 }
 .en_name-input input {
@@ -88,31 +82,31 @@ main {
 }
 
 .github {
-  grid-area: github;
+  grid-column: 1 / 2;
   background-color: var(--lightgray);
 }
 .github-input {
-  grid-area: github-input;
+  grid-column: 2 / 3;
   background-color: white;
 }
 .gender {
-  grid-area: gender;
+  grid-column: 3 / 4;
   background-color: var(--lightgray);
 }
 .gender-select {
-  grid-area: gender-select;
+  grid-column: 4 / 5;
   background-color: white;
 }
 .gender-select select {
   width: 99%;
 }
 .role {
-  grid-area: role;
+  grid-column: 5 / 6;
   text-align: center;
   background-color: var(--lightgray);
 }
 .role-select {
-  grid-area: role-select;
+  grid-column: 6 / 7;
   background-color: white;
 }
 .role-select select {
@@ -120,22 +114,22 @@ main {
 }
 
 .group1 {
-  grid-area: group1;
+  grid-column: 1 / 2;
   background-color: var(--lightgray);
 }
 .group1-input {
-  grid-area: group1-input;
+  grid-column: 2 / 4;
   background-color: white;
 }
 .group1-input input {
   width: 90%;
 }
 .group2 {
-  grid-area: group2;
+  grid-column: 4 / 5;
   background-color: var(--lightgray);
 }
 .group2-input {
-  grid-area: group2-input;
+  grid-column: 5 / 7;
   background-color: white;
 }
 .group2-input input {
@@ -149,7 +143,7 @@ main {
   padding: 1%;
 }
 .reset_btn {
-  grid-area: reset_btn;
+  grid-column: 1 / 4;
   background-color: var(--lightbrown);
 }
 .reset_btn button {
@@ -159,7 +153,7 @@ main {
   cursor: pointer;
 }
 .search_btn {
-  grid-area: search_btn;
+  grid-column: 4 / 7;
   background-color: var(--darkbrown);
 }
 .search_btn button {
