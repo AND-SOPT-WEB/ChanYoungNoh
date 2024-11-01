@@ -1,11 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/4a998b80be.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>[2주차] JavaScript</title>
+  </head>
+  <body>
+    <header class="header-container">
+      <i class="fa-solid fa-bars header-item"></i>
+      <h1 class="header-title header-item">회원 관리 페이지</h1>
+      <p class="header-profile header-item">🌊AND SOPT WEB 노찬영🩵</p>
+    </header>
+
+    <main>
+      <section class="filter">
+        <div class="name">
+          <label for="name">이름</label>
+        </div>
+        <div class="name-input">
+          <input type="text" id="name-input" placeholder="이름을 입력하세요" />
+        </div>
+
+        <div class="en_name">
+          <label for="en_name">영문 이름</label>
+        </div>
+        <div class="en_name-input">
+          <input
+            type="text"
+            id="en_name-input"
+            placeholder="영문 이름을 입력하세요"
+          />
+        </div>
+
+        <div class="github">
+          <label for="github">GitHub</label>
+        </div>
+        <div class="github-input">
+          <input
+            type="text"
+            id="github-input"
+            placeholder="GitHub ID를 입력하세요"
+          />
+        </div>
+        <div class="gender">
+          <label for="gender">성별</label>
+        </div>
+        <div class="gender-select">
+          <select>
+            <option value="" selected>성별 선택</option>
+            <option value="male">남자</option>
+            <option value="female">여자</option>
+          </select>
+        </div>
+        <div class="role">
+          <label for="role">역할</label>
+        </div>
+        <div class="role-select">
+          <select>
+            <option value="" selected>OB / YB 선택</option>
+            <option value="ob">OB</option>
+            <option value="yb">YB</option>
+          </select>
+        </div>
+
+        <div class="group1">
+          <label for="group1">1주차 금잔디조</label>
+        </div>
+        <div class="group1-input">
+          <input
+            type="text"
+            id="group1-input"
+            placeholder="1주차 금잔디조를 입력하세요 (1~9)"
+          />
+        </div>
+        <div class="group2">
+          <label for="group2">2주차 금잔디조</label>
+        </div>
+        <div class="group2-input">
+          <input
+            type="text"
+            id="group2-input"
+            placeholder="2주차 금잔디조를 입력하세요 (1~9)"
+          />
+        </div>
+
+        <div class="reset_btn">
+          <button>초기화</button>
+        </div>
+        <div class="search_btn">
+          <button>검색</button>
+        </div>
+      </section>
+
+      <section class="table">
+        <div class="table-btn">
+          <button class="delete_btn">선택삭제</button>
+          <button class="add_btn">추가</button>
+        </div>
+        <table class="members-table">
+          <thead>
+            <tr class="members-table-head">
+              <th><input type="checkbox" id="select__item" /></th>
+              <th>이름</th>
+              <th>영문 이름</th>
+              <th>GitHub</th>
+              <th>성별</th>
+              <th>역할</th>
+              <th>1주차 금잔디</th>
+              <th>2주차 금잔디</th>
+            </tr>
+          </thead>
+          <tbody class="members-table-body"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <section class="modal">
+      <dialog class="modal__contents">
+        <h2>새 멤버 추가 🩵</h2>
+        <button type="button" class="modal__closeBtn">X</button>
+
+        <form method="dialog" id="modal__item">
+          <div class="modal__input">
+            <label for="modal__name">이름</label>
+            <input
+              type="text"
+              id="modal__name"
+              class="modal__name"
+              placeholder="이름을 입력하세요"
+            />
+          </div>
+          <div class="modal__input">
+            <label for="modal__enname">영문이름</label>
+            <input
+              type="text"
+              id="modal__enname"
+              class="modal__enname"
+              placeholder="영문 이름을 입력하세요"
+            />
+          </div>
+          <div class="modal__input">
+            <label for="modal__github">깃허브</label>
+            <input
+              type="text"
+              id="modal__github"
+              class="modal__github"
+              placeholder="깃허브 ID를 입력해주세요"
+            />
+          </div>
+          <div class="modal__select">
+            <label for="modal__gender">성별</label>
+            <select name="modal__gender" class="modal__gender">
+              <option value="" selected disabled>성별 선택</option>
+              <option value="male">남성</option>
+              <option value="female">여성</option>
+            </select>
+          </div>
+          <div class="modal__select">
+            <label for="modal__role">역할</label>
+            <select name="modal__role" class="modal__role">
+              <option value="" selected disabled>YB/OB 선택</option>
+              <option value="YB">YB</option>
+              <option value="OB">OB</option>
+            </select>
+          </div>
+          <div class="modal__input">
+            <label for="modal__group1">1주차 금잔디조</label>
+            <input
+              type="text"
+              id="modal__group1"
+              class="modal__group1"
+              placeholder="1주차 금잔디조를 입력해주세요"
+            />
+          </div>
+          <div class="modal__input">
+            <label for="modal__group2">2주차 금잔디조</label>
+            <input
+              type="text"
+              id="modal__group2"
+              class="modal__group2"
+              placeholder="2주차 금잔디조를 입력해주세요"
+            />
+          </div>
+          <div class="modal__addBtn">
+            <button class="modal__addBtn">추가</button>
+          </div>
+        </form>
+      </dialog>
+    </section>
+
+    <script type="module" src="./utils/filter.js"></script>
+    <script type="module" src="./utils/table.js"></script>
+  </body>
 </html>
