@@ -56,6 +56,10 @@ export const resetFilters = () => {
   document.querySelector(".role-select select").value = "";
   document.querySelector(".group1-input input").value = "";
   document.querySelector(".group2-input input").value = "";
+
+  const membersData = JSON.parse(localStorage.getItem("membersData")) || [];
+  const tableBody = document.querySelector(".members-table-body");
+  renderMembersTable(membersData, tableBody);
 };
 
 const searchBtn = document.querySelector(".search_btn");
@@ -64,13 +68,10 @@ searchBtn.addEventListener("click", () => {
   const filteredData = filter(searchData);
   const tableBody = document.querySelector(".members-table-body");
   renderMembersTable(filteredData, tableBody);
-  console.log(renderMembersTable);
 });
 
 const resetBtn = document.querySelector(".reset_btn");
 resetBtn.addEventListener("click", () => {
   resetFilters();
-  const membersData = JSON.parse(localStorage.getItem("membersData")) || [];
-  const tableBody = document.querySelector(".members-table-body");
-  renderMembersTable(membersData, tableBody);
+  window.location.reload();
 });
