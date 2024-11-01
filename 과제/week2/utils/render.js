@@ -1,5 +1,4 @@
 export const renderMembersTable = (membersData, tableBody) => {
-  tableBody.replaceChildren();
   localStorage.setItem("membersData", JSON.stringify(membersData));
 
   membersData.forEach((member) => {
