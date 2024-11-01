@@ -32,6 +32,7 @@ modalAddBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   const newMember = {
+    id: membersData.length + 1,
     name: document.querySelector(".modal__name").value.trim(),
     englishName: document.querySelector(".modal__enname").value.trim(),
     github: document.querySelector(".modal__github").value.trim(),
@@ -62,7 +63,6 @@ deleteBtn.addEventListener("click", () => {
   checkedBoxes.forEach((checkbox) => {
     const row = checkbox.closest("tr");
     let Id = row.dataset.id;
-    row.remove();
     memberId.push(Number(Id));
   });
   updatedData = updatedData.filter((member) => !memberId.includes(member.id));
