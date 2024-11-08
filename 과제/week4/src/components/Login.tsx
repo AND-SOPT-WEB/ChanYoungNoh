@@ -1,6 +1,13 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleLinkClick = () => {
+    navigate("/join");
+  };
+
   return (
     <LoginWrap>
       <LoginBox>
@@ -8,7 +15,7 @@ const Login = () => {
         <Input placeholder="아이디" />
         <Input type="password" placeholder="비밀번호" />
         <LoginBtn>로그인</LoginBtn>
-        <SignupLink>회원가입</SignupLink>
+        <SignupLink onClick={handleLinkClick}>회원가입</SignupLink>
       </LoginBox>
     </LoginWrap>
   );
