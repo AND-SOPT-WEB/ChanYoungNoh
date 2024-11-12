@@ -23,3 +23,4 @@ export const theme: DefaultTheme = {
   colors,
   fonts,
 };
+

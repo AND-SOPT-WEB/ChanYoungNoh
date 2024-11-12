@@ -25,6 +25,8 @@ const JoinPassword = () => {
 
   const handleNextClick = () => {
     if (isButtonEnabled) {
+      localStorage.setItem("password", password);
+
       navigate("/join/hobby");
     }
   };
@@ -40,12 +42,14 @@ const JoinPassword = () => {
         <h2>회원가입</h2>
         <h4>비밀번호</h4>
         <Input
+          id="password"
           type="password"
           placeholder="비밀번호를 입력해주세요"
           onChange={handlePasswordChange}
           value={password}
         />
         <Input
+          id="checkPassword"
           type="password"
           placeholder="비밀번호 확인"
           onChange={handleConfirmPasswordChange}

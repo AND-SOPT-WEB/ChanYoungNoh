@@ -1,8 +1,30 @@
 import styled from "styled-components";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../utils/loginUser";
 
 const Login = () => {
+  const [name, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
+
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const handleLoginClick = async () => {
+    try {
+      await loginUser({ name, password });
+      navigate("/myPage");
+    } catch (err: any) {
+      alert(err.message);
+    }
+  };
 
   const handleLinkClick = () => {
     navigate("/join");
@@ -12,9 +34,20 @@ const Login = () => {
     <LoginWrap>
       <LoginBox>
         <p>로그인</p>
-        <Input placeholder="아이디" />
-        <Input type="password" placeholder="비밀번호" />
-        <LoginBtn>로그인</LoginBtn>
+        <Input
+          id="id"
+          placeholder="아이디"
+          value={name}
+          onChange={handleUsernameChange}
+        />
+        <Input
+          id="password"
+          type="password"
+          placeholder="비밀번호"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+        <LoginBtn onClick={handleLoginClick}>로그인</LoginBtn>
         <SignupLink onClick={handleLinkClick}>회원가입</SignupLink>
       </LoginBox>
     </LoginWrap>

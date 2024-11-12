@@ -1,20 +1,51 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { postUser } from "../utils/postUser";
 
 const Join = () => {
   const [inputValue, setInputValue] = useState("");
+  const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
   // 입력 값 변경 시 상태 업데이트
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
+    setError("");
+  };
+
+  const validateUsername = (username: string) => {
+    if (username.trim() === "") {
+      return "사용자 이름을 입력해주세요.";
+    }
+    if (username.length > 8) {
+      return "사용자 이름은 8자 이하여야 합니다.";
+    }
+    return "";
   };
 
   // NextBtn 클릭 시 페이지 이동
-  const handleNextClick = () => {
-    if (inputValue !== "") {
+  const handleNextClick = async () => {
+    const validationError = validateUsername(inputValue);
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+    try {
+      localStorage.setItem("username", inputValue);
+
+      // 회원가입 api 호출
+      await postUser({
+        name: inputValue,
+        password: "",
+        hobby: "",
+        passwordCheck: "",
+      });
       navigate("/join/password");
+    } catch (err: any) {
+      console.log(error);
+      alert(err.message);
     }
   };
 
@@ -29,6 +60,7 @@ const Join = () => {
         <h2>회원가입</h2>
         <h4>이름</h4>
         <Input
+          id="username"
           placeholder="사용자 이름을 입력해주세요"
           onChange={handleChange}
           value={inputValue}
@@ -92,15 +124,13 @@ interface NextBtnProps {
 const NextBtn = styled.button<NextBtnProps>`
   width: 100%;
   padding: 0.8rem;
-  background-color: ${(props) =>
-    props.isFilled
-      ? props.theme.colors.lightGreen
-      : props.theme.colors.buttonGray};
+  background-color: ${({ isFilled, theme }) =>
+    isFilled ? theme.colors.lightGreen : theme.colors.buttonGray};
   color: white;
   border-radius: 4px;
   font-size: ${(props) => props.theme.fonts.sm};
   transition: background-color 0.3s ease;
-  cursor: ${(props) => (props.isFilled ? "pointer" : "default")};
+  cursor: ${({ isFilled }) => (isFilled ? "pointer" : "default")};
 `;
 
 export default Join;

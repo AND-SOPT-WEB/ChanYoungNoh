@@ -3,17 +3,19 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Hobby = () => {
-  const [inputValue, setInputValue] = useState("");
+  const [hobby, setHobby] = useState("");
   const navigate = useNavigate();
 
   // 입력 값 변경 시 상태 업데이트
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
+    setHobby(e.target.value);
   };
 
   // JoinBtn 클릭 시 페이지 이동
   const handleBtnClick = () => {
-    if (inputValue !== "") {
+    if (hobby !== "") {
+      localStorage.setItem("hobby", hobby);
+
       navigate("/");
     }
   };
@@ -29,12 +31,13 @@ const Hobby = () => {
         <h2>회원가입</h2>
         <h4>취미</h4>
         <Input
+          id="hobby"
           placeholder="취미를 입력해주세요"
           onChange={handleChange}
-          value={inputValue}
+          value={hobby}
         />
         {/* 입력값이 존재할 때만 버튼 색상 변경 */}
-        <JoinBtn isFilled={inputValue !== ""} onClick={handleBtnClick}>
+        <JoinBtn isFilled={hobby !== ""} onClick={handleBtnClick}>
           회원가입
         </JoinBtn>
         <p>
