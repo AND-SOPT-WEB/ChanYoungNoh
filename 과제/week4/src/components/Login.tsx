@@ -18,6 +18,7 @@ const Login = () => {
   };
 
   const handleLoginClick = async () => {
+    
     try {
       await loginUser({ name, password });
       navigate("/myPage");
