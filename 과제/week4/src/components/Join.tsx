@@ -62,11 +62,9 @@ const Join = () => {
           hobby: inputValue.hobby,
           passwordCheck: inputValue.confirmPassword,
         });
-        // 서버에서 반환된 token을 로컬스토리지에 저장
-        const token = response.token;
-        if (token) {
-          localStorage.setItem("token", token);
-        }
+        const memberNo = response.no;
+
+        alert(`회원가입 성공! 회원번호: ${memberNo}`);
         navigate("/");
       } catch (err: any) {
         console.log(error);

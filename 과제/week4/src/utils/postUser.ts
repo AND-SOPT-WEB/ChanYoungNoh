@@ -9,11 +9,7 @@ export async function postUser(formData: passwordForm) {
       password: formData.password,
       hobby: formData.hobby,
     });
-    const token = res.data.token;
-    if (token) {
-      localStorage.setItem("token", token);
-    }
-    return res.data;
+    return res.data.result;
   } catch (err: any) {
     const { status, data } = err.response;
     if (status === 400) {
