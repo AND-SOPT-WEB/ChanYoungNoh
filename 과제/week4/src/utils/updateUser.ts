@@ -17,7 +17,9 @@ export async function updateUser(userData: updateUserForm) {
         hobby: userData.hobby,
       },
       {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+          token: `${token}`,
+        },
       }
     );
     return res.data;

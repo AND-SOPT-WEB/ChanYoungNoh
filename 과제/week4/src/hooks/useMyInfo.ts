@@ -27,11 +27,17 @@ const useMyInfo = () => {
           alert("취미가 변경되었습니다.");
         }
 
-        setNewPassword("");
-        setNewHobby("");
-      } catch (err) {
+        if (newPassword) {
+          localStorage.setItem("password", newPassword);
+        }
+        if (newHobby) {
+          localStorage.setItem("hobby", newHobby);
+        }
+        setNewPassword(newPassword);
+        setNewHobby(newHobby);
+      } catch (err: any) {
         console.log(err);
-        alert("정보 수정 중 오류가 발생했습니다.");
+        alert(err.message || "정보 수정 중 오류가 발생했습니다.");
       }
     } else {
       alert("로그인이 필요합니다.");
