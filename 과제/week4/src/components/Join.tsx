@@ -35,6 +35,7 @@ const Join = () => {
     const { password, confirmPassword } = inputValue;
     if (password === "" || confirmPassword === "")
       return "비밀번호를 입력해주세요.";
+    if (password.length > 8) return "비밀번호는 8자 이하여야 합니다.";
     if (password !== confirmPassword) return "비밀번호가 일치하지 않습니다.";
     return "";
   };
@@ -67,7 +68,7 @@ const Join = () => {
         alert(`회원가입 성공! 회원번호: ${memberNo}`);
         navigate("/");
       } catch (err: any) {
-        console.log(error);
+        console.log(err);
         alert(err.message);
       }
     }
@@ -125,9 +126,14 @@ const Join = () => {
         <Error>{error}</Error>
         <NextBtn
           isFilled={
-            inputValue[
-              step === 1 ? "username" : step === 2 ? "password" : "hobby"
-            ] !== ""
+            step === 1
+              ? inputValue.username !== ""
+              : step === 2
+              ? inputValue.password !== "" &&
+                inputValue.confirmPassword !== "" &&
+                inputValue.password === inputValue.confirmPassword &&
+                inputValue.password.length <= 8
+              : inputValue.hobby !== ""
           }
           onClick={handleNextClick}
         >
