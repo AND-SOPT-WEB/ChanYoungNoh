@@ -9,6 +9,7 @@ const MyPage = () => {
   const [menu, setMenu] = useState("hobby");
   const [userNumber, setUserNumber] = useState("");
   const [searchHobby, setSearchHobby] = useState("");
+  const [isSearched, setIsSearched] = useState(false);
   const {
     newPassword,
     newHobby,
@@ -27,14 +28,22 @@ const MyPage = () => {
   const handleSearch = async () => {
     if (!userNumber) {
       alert("사용자 번호를 입력해주세요.");
+      setIsSearched(false);
       return;
     }
 
     try {
       const hobby = await otherUserHobby(Number(userNumber));
-      setSearchHobby(hobby || "취미를 찾을 수 없습니다.");
+      if (hobby) {
+        setSearchHobby(hobby);
+        setIsSearched(true);
+      } else {
+        alert("해당 번호의 데이터가 존재하지 않습니다.");
+        setIsSearched(false);
+      }
     } catch {
-      alert("검색 중 오류가 발생했습니다.");
+      alert("해당 번호의 데이터가 존재하지 않습니다.");
+      setIsSearched(false);
     }
   };
 
@@ -63,7 +72,7 @@ const MyPage = () => {
             onChange={(e) => setUserNumber(e.target.value)}
           />
           <SearchBtn onClick={handleSearch}>검색</SearchBtn>
-          {searchHobby && (
+          {isSearched && userNumber && searchHobby && (
             <ResultBox>
               {userNumber}번 사용자의 취미: {searchHobby}
             </ResultBox>

@@ -19,12 +19,15 @@ const useMyInfo = () => {
         if (newPassword && newHobby) {
           await updateUser({ password: newPassword, hobby: newHobby });
           alert("비밀번호와 취미가 모두 변경되었습니다.");
+          navigate("/");
         } else if (newPassword) {
           await updateUser({ password: newPassword });
           alert("비밀번호가 변경되었습니다.");
+          navigate("/");
         } else if (newHobby) {
           await updateUser({ hobby: newHobby });
           alert("취미가 변경되었습니다.");
+          navigate("/");
         }
 
         if (newPassword) {
