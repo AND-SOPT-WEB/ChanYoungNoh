@@ -1,12 +1,17 @@
-import axios from "../lib/axios";
+import instance from "../lib/axios";
 
 // 유저 취미 조회 (로그인 필요)
 export async function userHobby() {
   const token = localStorage.getItem("token");
+  if (!token) {
+    throw new Error("로그인이 필요합니다.");
+  }
 
   try {
-    const res = await axios.get(`/user/my-hobby`, {
-      headers: { token },
+    const res = await instance.get(`/user/my-hobby`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
     return res.data;
   } catch (err: any) {

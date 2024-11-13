@@ -9,7 +9,7 @@ const MyPage = () => {
   const [menu, setMenu] = useState("hobby");
   const [userNumber, setUserNumber] = useState("");
   const [searchHobby, setSearchHobby] = useState("");
-  const { password, newHobby, setPassword, setNewHobby, handleUpdateInfo } =
+  const { newPassword, newHobby, setNewPassword, setNewHobby, handleUpdateInfo } =
     useMyInfo();
   const myHobby = useMyHobby();
   const navigate = useNavigate();
@@ -72,8 +72,8 @@ const MyPage = () => {
             id="password"
             type="password"
             placeholder="비밀번호"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
           />
           <Label>새 취미</Label>
           <Input

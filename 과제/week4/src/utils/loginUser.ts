@@ -1,16 +1,19 @@
-import axios from "../lib/axios";
+import instance from "../lib/axios";
 import { loginForm } from "../types/dataType";
 
 // 유저 로그인 API
 export async function loginUser(userData: loginForm) {
   try {
-    const res = await axios.post(`/login`, {
+    const res = await instance.post(`/login`, {
       username: userData.name,
       password: userData.password,
     });
     if (res.status === 200) {
-      const { token } = res.data.result;
-      return token;
+      const token = res.data.token;
+      if (token) {
+        localStorage.setItem("token", token); // 토큰을 로컬스토리지에 저장
+      }
+      return res.data;
     }
   } catch (err: any) {
     const { status, data } = err.response;

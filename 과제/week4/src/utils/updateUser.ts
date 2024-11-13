@@ -1,4 +1,4 @@
-import axios from "../lib/axios";
+import instance from "../lib/axios";
 import { updateUserForm } from "../types/dataType";
 
 // 유저 정보 업데이트
@@ -10,19 +10,19 @@ export async function updateUser(userData: updateUserForm) {
   }
 
   try {
-    const response = await axios.put(
+    const res = await instance.put(
       `/user`,
       {
         password: userData.password,
         hobby: userData.hobby,
       },
       {
-        headers: { token },
+        headers: { Authorization: `Bearer ${token}` },
       }
     );
-    return response.data;
+    return res.data;
   } catch (err: any) {
-    const { status, data } = err.response;
+    const { status, data } = err.res;
 
     // 에러 처리
     switch (status) {

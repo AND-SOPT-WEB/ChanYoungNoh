@@ -9,7 +9,7 @@ const useMyHobby = () => {
       const token = localStorage.getItem("token");
       if (token) {
         try {
-          const res = await userHobby(token);
+          const res = await userHobby();
           setMyHobby(res.hobby);
         } catch (err) {
           console.error(

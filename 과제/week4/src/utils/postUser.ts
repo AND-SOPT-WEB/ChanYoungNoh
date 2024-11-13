@@ -1,14 +1,18 @@
-import axios from "../lib/axios";
+import instance from "../lib/axios";
 import { passwordForm } from "../types/dataType";
 
 // 사용자 회원가입
 export async function postUser(formData: passwordForm) {
   try {
-    const res = await axios.post(`/user`, {
+    const res = await instance.post(`/user`, {
       username: formData.name,
       password: formData.password,
       hobby: formData.hobby,
     });
+    const token = res.data.token;
+    if (token) {
+      localStorage.setItem("token", token);
+    }
     return res.data;
   } catch (err: any) {
     const { status, data } = err.response;

@@ -2,8 +2,7 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/loginPage";
 import JoinPage from "./pages/joinPage";
-import Password from "./pages/passwordPage";
-import HobbyPage from "./pages/Hobby";
+// import HobbyPage from "./pages/Hobby";
 import MyPage from "./pages/myPage";
 
 const router = createBrowserRouter([
@@ -14,14 +13,6 @@ const router = createBrowserRouter([
   {
     path: "/join",
     element: <JoinPage />,
-  },
-  {
-    path: "/join/password",
-    element: <Password />,
-  },
-  {
-    path: "/join/hobby",
-    element: <HobbyPage />,
   },
   {
     path: "/myPage",

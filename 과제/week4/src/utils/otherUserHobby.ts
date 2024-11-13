@@ -1,12 +1,14 @@
-import axios from "../lib/axios";
+import instance from "../lib/axios";
 
 // 다른 유저의 취미 조회
 export async function otherUserHobby(no: number) {
   const token = localStorage.getItem("token");
 
   try {
-    const res = await axios.get(`/user/${no}/hobby`, {
-      headers: { token },
+    const res = await instance.get(`/user/${no}/hobby`, {
+      headers: {
+        Authorization: token ? `Bearer ${token}` : "",
+      },
     });
     return res.data;
   } catch (err: any) {
