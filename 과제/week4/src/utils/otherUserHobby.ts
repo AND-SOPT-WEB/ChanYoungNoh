@@ -7,10 +7,10 @@ export async function otherUserHobby(no: number) {
   try {
     const res = await instance.get(`/user/${no}/hobby`, {
       headers: {
-        Authorization: token ? `Bearer ${token}` : "",
+        token: `${token}`,
       },
     });
-    return res.data;
+    return res.data.result.hobby;
   } catch (err: any) {
     const { status, data } = err.response;
     if (status === 404) {

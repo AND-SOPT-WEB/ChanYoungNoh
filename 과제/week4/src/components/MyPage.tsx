@@ -9,8 +9,13 @@ const MyPage = () => {
   const [menu, setMenu] = useState("hobby");
   const [userNumber, setUserNumber] = useState("");
   const [searchHobby, setSearchHobby] = useState("");
-  const { newPassword, newHobby, setNewPassword, setNewHobby, handleUpdateInfo } =
-    useMyInfo();
+  const {
+    newPassword,
+    newHobby,
+    setNewPassword,
+    setNewHobby,
+    handleUpdateInfo,
+  } = useMyInfo();
   const myHobby = useMyHobby();
   const navigate = useNavigate();
 
@@ -178,6 +183,7 @@ const SearchBtn = styled.button`
 
 const ResultBox = styled.div`
   margin-top: 1.5rem;
+  color: ${(props) => props.theme.colors.fontBrown};
 `;
 
 const UserInfoBox = styled.div`
