@@ -1,71 +1,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 
-// 로컬 스토리지에서 랭킹 데이터 불러오기 및 정렬
-const getSortedData = () => {
-  const savedData = JSON.parse(localStorage.getItem("rankingData")) || [];
-  const flatData = savedData.flat();
-
-  // 레벨 및 플레이 시간 기준 정렬
-  flatData.sort((a, b) => {
-    const levelOrder = { level1: 1, level2: 2, level3: 3 };
-
-    // 높은 레벨이 위쪽으로 정렬되도록
-    const levelComparison = levelOrder[b.level] - levelOrder[a.level];
-
-    // 같은 레벨일 경우 플레이 시간 오름차순으로 정렬
-    if (levelComparison !== 0) {
-      return levelComparison;
-    } else {
-      return parseFloat(a.playTime) - parseFloat(b.playTime);
-    }
-  });
-
-  return flatData;
-};
-
-const Ranking = () => {
-  const [data, setData] = useState(getSortedData());
-
-  // 초기화 버튼 클릭 시 랭킹 데이터 삭제
-  const handleReset = () => {
-    localStorage.removeItem("rankingData");
-    setData([]);
-  };
-
-  return (
-    <RankingContainer>
-      <RankingContent>
-        <TitleRow>
-          <Title>랭킹</Title>
-          <ResetButton onClick={handleReset}>🔄 초기화</ResetButton>
-        </TitleRow>
-        <Table>
-          <thead>
-            <tr>
-              <TableHeader>타임스탬프</TableHeader>
-              <TableHeader>레벨</TableHeader>
-              <TableHeader>플레이 시간</TableHeader>
-            </tr>
-          </thead>
-          <tbody>
-            {data.length > 0 ? (
-              data.map((entry, index) => (
-                <TableRow key={index}>
-                  <TableData>{entry.date}</TableData>
-                  <TableData>Level {entry.level.slice(-1)}</TableData>
-                  <TableData>{entry.playTime} 초</TableData>
-                </TableRow>
-              ))
-            ) : (
-              <TableRow></TableRow>
-            )}
-          </tbody>
-        </Table>
-      </RankingContent>
-    </RankingContainer>
-  );
-};
+import getSortedData from "../utils/getSortedData";
 
 const RankingContainer = styled.div`
   display: flex;
@@ -133,5 +69,48 @@ const TableData = styled.td`
   text-align: left;
   border: 1px solid green;
 `;
+
+const Ranking = () => {
+  const [data, setData] = useState(getSortedData());
+
+  // 초기화 버튼 클릭 시 랭킹 데이터 삭제
+  const handleReset = () => {
+    localStorage.removeItem("rankingData");
+    setData([]);
+  };
+
+  return (
+    <RankingContainer>
+      <RankingContent>
+        <TitleRow>
+          <Title>랭킹</Title>
+          <ResetButton onClick={handleReset}>🔄 초기화</ResetButton>
+        </TitleRow>
+        <Table>
+          <thead>
+            <tr>
+              <TableHeader>타임스탬프</TableHeader>
+              <TableHeader>레벨</TableHeader>
+              <TableHeader>플레이 시간</TableHeader>
+            </tr>
+          </thead>
+          <tbody>
+            {data.length > 0 ? (
+              data.map((entry, index) => (
+                <TableRow key={index}>
+                  <TableData>{entry.date}</TableData>
+                  <TableData>Level {entry.level.slice(-1)}</TableData>
+                  <TableData>{entry.playTime} 초</TableData>
+                </TableRow>
+              ))
+            ) : (
+              <TableRow></TableRow>
+            )}
+          </tbody>
+        </Table>
+      </RankingContent>
+    </RankingContainer>
+  );
+};
 
 export default Ranking;

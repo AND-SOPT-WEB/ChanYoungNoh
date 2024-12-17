@@ -2,19 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "@emotion/styled";
 
-const Modal = ({ children, onClose }) => {
-  // React의 createPortal을 사용하여 Modal 구현
-  return ReactDOM.createPortal(
-    <ModalOverlay onClick={onClose}>
-      <ModalContent onClick={(e) => e.stopPropagation()}>
-        {children}
-        <CloseButton onClick={onClose}>Ok</CloseButton>
-      </ModalContent>
-    </ModalOverlay>,
-    document.body
-  );
-};
-
 const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
@@ -47,5 +34,18 @@ const CloseButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
 `;
+
+const Modal = ({ children, onClose }) => {
+  // React의 createPortal을 사용하여 Modal 구현
+  return ReactDOM.createPortal(
+    <ModalOverlay onClick={onClose}>
+      <ModalContent onClick={(e) => e.stopPropagation()}>
+        {children}
+        <CloseButton onClick={onClose}>Ok</CloseButton>
+      </ModalContent>
+    </ModalOverlay>,
+    document.body
+  );
+};
 
 export default Modal;

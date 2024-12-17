@@ -1,38 +1,6 @@
 import styled from "@emotion/styled";
 import "../styles/Header.css";
 
-const Header = ({ menu, setMenu, level, setLevel, time }) => {
-  return (
-    <HeaderContainer>
-      <h2>1 to 50</h2>
-      <MenuContainer>
-        <Menu active={menu === "game"} onClick={() => setMenu("game")}>
-          게임
-        </Menu>
-        <Menu active={menu === "ranking"} onClick={() => setMenu("ranking")}>
-          랭킹
-        </Menu>
-      </MenuContainer>
-
-      {menu === "game" && (
-        <RightContainer>
-          <select
-            className="level"
-            id="level"
-            onChange={(e) => setLevel(e.target.value)}
-            value={level}
-          >
-            <option value="level1">Level 1</option>
-            <option value="level2">Level 2</option>
-            <option value="level3">Level 3</option>
-          </select>
-          <Timer>{time.toFixed(2)}</Timer>{" "}
-        </RightContainer>
-      )}
-    </HeaderContainer>
-  );
-};
-
 const HeaderContainer = styled.header`
   display: flex;
   gap: 2rem;
@@ -68,7 +36,42 @@ const Timer = styled.div`
   display: flex;
   padding: 0.5rem;
   color: white;
-  width: 30px; 
+  width: 30px;
 `;
+
+const Header = ({ menu, onMenuChange, level, onLevelChange, time }) => {
+  return (
+    <HeaderContainer>
+      <h2>1 to 50</h2>
+      <MenuContainer>
+        <Menu active={menu === "game"} onClick={() => onMenuChange("game")}>
+          게임
+        </Menu>
+        <Menu
+          active={menu === "ranking"}
+          onClick={() => onMenuChange("ranking")}
+        >
+          랭킹
+        </Menu>
+      </MenuContainer>
+
+      {menu === "game" && (
+        <RightContainer>
+          <select
+            className="level"
+            id="level"
+            onChange={(e) => onLevelChange(e.target.value)}
+            value={level}
+          >
+            <option value="level1">Level 1</option>
+            <option value="level2">Level 2</option>
+            <option value="level3">Level 3</option>
+          </select>
+          <Timer>{time.toFixed(2)}</Timer>{" "}
+        </RightContainer>
+      )}
+    </HeaderContainer>
+  );
+};
 
 export default Header;

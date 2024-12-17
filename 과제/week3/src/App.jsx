@@ -9,19 +9,28 @@ function App() {
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(false);
 
+  const handleMenuChange = (newMenu) => {
+    setMenu(newMenu);
+  };
+
+  const handleLevelChange = (newLevel) => {
+    setLevel(newLevel);
+    setTime(0);
+    setRunning(false);
+  };
+
   return (
     <div className="App">
       <Header
         menu={menu}
-        setMenu={setMenu}
+        onMenuChange={handleMenuChange}
         level={level}
-        setLevel={setLevel}
+        onLevelChange={handleLevelChange}
         time={time}
       />
       {menu === "game" && (
         <Game
           level={level}
-          setLevel={setLevel}
           time={time}
           setTime={setTime}
           running={running}
