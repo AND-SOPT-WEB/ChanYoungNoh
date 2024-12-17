@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-
 import getSortedData from "../utils/getSortedData";
 
 const RankingContainer = styled.div`

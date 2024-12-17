@@ -73,5 +73,4 @@ const Header = ({ menu, onMenuChange, level, onLevelChange, time }) => {
     </HeaderContainer>
   );
 };
-
 export default Header;
